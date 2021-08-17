@@ -24,11 +24,11 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Container(
         child: StreamBuilder<List<Employee>>(
-          stream: _employeeBloc.employeeListStream,
+          stream: _employeeBloc!.employeeListStream,
           builder:
               (BuildContext context, AsyncSnapshot<List<Employee>> snapshot) {
             return ListView.builder(
-              itemCount: snapshot.data.length,
+              itemCount: snapshot.data!.length,
               itemBuilder: (context, index) {
                 return Card(
                   elevation: 5.0,
@@ -38,7 +38,7 @@ class _HomePageState extends State<HomePage> {
                       Container(
                         padding: EdgeInsets.all(20.0),
                         child: Text(
-                          "${snapshot.data[index].id}",
+                          "${snapshot.data![index].id}",
                           style: TextStyle(fontSize: 20.0),
                         ),
                       ),
@@ -48,11 +48,11 @@ class _HomePageState extends State<HomePage> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              "${snapshot.data[index].name}",
+                              "${snapshot.data![index].name}",
                               style: TextStyle(fontSize: 18.0),
                             ),
                             Text(
-                              "Rs.${snapshot.data[index].salary}",
+                              "Rs.${snapshot.data![index].salary}",
                               style: TextStyle(fontSize: 18.0),
                             ),
                           ],
@@ -64,7 +64,7 @@ class _HomePageState extends State<HomePage> {
                           color: Colors.green,
                           onPressed: () {
                             _employeeBloc.employeeSalaryIncrement
-                                .add(snapshot.data[index]);
+                                .add(snapshot.data![index]);
                           },
                         ),
                       ),
@@ -73,7 +73,8 @@ class _HomePageState extends State<HomePage> {
                           icon: Icon(Icons.thumb_down),
                           color: Colors.red,
                           onPressed: () {
-                            _employeeBloc.employeeSalaryDecrement.add(snapshot.data[index])
+                            _employeeBloc.employeeSalaryDecrement
+                                .add(snapshot.data![index]);
                           },
                         ),
                       )
