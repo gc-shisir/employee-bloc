@@ -18,3 +18,7 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+
+// 11 creating UI for bloc
+// 7:42
