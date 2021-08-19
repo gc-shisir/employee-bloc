@@ -1,6 +1,6 @@
 # employee_bloc
 
-A new Flutter project.
+BLoC pattern implementation in flutter
 
 ## Getting Started
 
